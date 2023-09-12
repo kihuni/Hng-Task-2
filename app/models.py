@@ -1,3 +1,4 @@
+# Data model
 from app import db
 
 class Person(db.Model):
