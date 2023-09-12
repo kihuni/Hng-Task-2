@@ -127,7 +127,7 @@ In case of errors, the API will return appropriate status codes and messages. Fo
 
 ## Assumptions and Limitations
 
-- Database: This model uses SQLite on development mode and mysql on production, sqlite is a lightweight database suitable for development and testing. For production scenarios, consider using a more scalable database of your choice.
+- Database: This model uses SQLite a lightweight database suitable for development and testing. For production scenarios, consider using a more scalable database of your choice.
 
 - Validation: The current implementation primarily validates the name for uniqueness. More comprehensive validation can be added based on requirements.
 
