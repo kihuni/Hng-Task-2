@@ -1,138 +1,127 @@
-# Persons Data API Documentation
-
 ## Overview
 
-The Persons data API allows for basic CRUD operations on a "person" resource.
+This API allows users to perform CRUD operations on a "person" resource. Users can create, read, update, and delete persons by their unique IDs.
 
 ## Setup Instructions
+Clone the repository:
 
-First, Fork and clone the project
+`git clone https://github.com/kihuni/Hng-Task-2.git`
 
-### Environment Setup:
+Navigate to the project directory:
 
-It's recommended to use a virtual environment to keep the project dependencies isolated.
+`cd project_name`
 
-```
-python -m venv venv
-source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-
-```
-### Install Dependencies:
-Install required packages from requirements.txt.
+Install the required packages:
 
 `pip install -r requirements.txt`
 
-### Run the Application:
-
-Start the Flask development server.
+Start the application:
 
 `python run.py`
 
-## Endpoints
+Your API is now running at http://127.0.0.1:5000/.
 
+## API Endpoints
 1. Add a New Person
 
-    URL: /api
-    Method: POST
-    Request Payload: JSON object containing a person's name.
+Endpoint: /api
+Method: POST
 
-### Sample Request
+Payload:
 ```
-json
-
-{
-    "name": "John Doe"
+}
+  "name": "John Doe"
 }
 
 ```
+2. Fetch Details of a Person
 
-### Sample Response
+Endpoint: /api/<user_id>
+Method: GET
+
+3. Modify Details of an Existing Person
+
+Endpoint: /api/<user_id>
+Method: PUT
+
+Payload:
+
 ```
-json
+{
+  "name": "Jane Doe"
+}
 
+```
+4. Remove a Person
+
+Endpoint: /api/<user_id>
+Method: DELETE
+
+## Testing the API Endpoints
+
+For testing, we'll use the tool [Postman](https://www.postman.com/downloads/).
+
+1. Add a New Person
+
+Open Postman.
+Set the method to POST.
+Enter the URL: http://127.0.0.1:5000/api.
+Under the Body tab, choose raw and JSON (application/json).
+Add the following payload:
+
+```
+{
+  "name": "John Doe"
+}
+
+```
+Click Send. You will receive a confirmation message.
+
+```
 {
     "message": "New person added!"
 }
 ```
 
-
 2. Fetch Details of a Person
 
-    URL: /api/<user_id>
-    Method: GET
-
-### Sample Request
-`GET /api/1`
-
-### Sample Response
-
+In Postman, set the method to GET.
+Enter the URL: http://127.0.0.1:5000/api/1 (assuming the person's ID is 1).
+Click Send. You should receive the details of the person.
 ```
-json
-
 {
     "name": "John Doe"
 }
 ```
+3. Modify Details of an Existing Person
 
-3. Update Details of a Person
-
-    URL: /api/<user_id>
-    Method: PUT
-    Request Payload: JSON object containing the updated name.
-
-### Sample Request
-`PUT /api/1`
-
+In Postman, set the method to PUT.
+Enter the URL: http://127.0.0.1:5000/api/1 (assuming the person's ID is 1).
+Under the Body tab, choose raw and JSON (application/json).
+Add the following payload:
 ```
-json
-
 {
-    "name": "Johnathan Doe"
+  "name": "Jane Doe"
 }
-
 ```
-
-### Sample Response
+Click Send. You should receive a confirmation message.
 ```
-json
-
 {
-    "message": "Person updated!"
+    "message": "person added!"
 }
-
 ```
 
 4. Remove a Person
-    URL: /api/<user_id>
-    Method: DELETE
 
-### Sample Request
-`DELETE /api/1`
+In Postman, set the method to DELETE.
+Enter the URL: http://127.0.0.1:5000/api/1 (assuming the person's ID is 1).
 
-### Sample Response
+Click Send. You should receive a confirmation message.
+
 ```
-json
-
 {
-    "message": "Person deleted!"
+    "message": "person deleted!"
 }
 ```
 
-## Error Responses
-In case of errors, the API will return appropriate status codes and messages. For instance:
-
-    400 Bad Request: Sent if the data format is incorrect or validation fails.
-    404 Not Found: If the resource (person) is not found.
-    405 Method Not Allowed: If the wrong HTTP method is used.
-
-## Assumptions and Limitations
-
-- Database: This model uses SQLite a lightweight database suitable for development and testing. For production scenarios, consider using a more scalable database of your choice.
-
-- Validation: The current implementation primarily validates the name for uniqueness. More comprehensive validation can be added based on requirements.
-
-- Security: This is a basic model without authentication or authorization layers. Before moving to a production environment, consider adding security mechanisms.
-
-## Conclusion
-
-This documentation provides a basic overview and usage instructions for the Persons data API. Always ensure that you're using the correct HTTP methods and providing data in the required format to ensure smooth operations.
+[live link](https://personapi-qey7.onrender.com/)
