@@ -120,8 +120,6 @@ Click Send. You should receive a confirmation message.
 
 ```
 {
-    "message": "person deleted!"
+    "message": "New person added!"
 }
 ```
-
-[live link](https://personapi-qey7.onrender.com/)
