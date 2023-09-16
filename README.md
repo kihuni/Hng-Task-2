@@ -56,7 +56,7 @@ Payload:
 
 ```
 {
-  "name": "Jane Doe"
+  "name": "John Doe"
 }
 
 ```
