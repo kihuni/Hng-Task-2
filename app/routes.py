@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 
 @app.route('/')
 def index():
-    return "Welcome to your first API!"
+    return "Welcome to my first API!"
 
 
 @app.route('/api', methods=['POST'])
