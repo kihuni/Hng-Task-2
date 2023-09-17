@@ -11,6 +11,14 @@ Navigate to the project directory:
 
 `cd project_name`
 
+Environment Setup:
+
+It's recommended to use a virtual environment to keep the project dependencies isolated.
+```
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+```
+
 Install the required packages:
 
 `pip install -r requirements.txt`
@@ -48,7 +56,7 @@ Payload:
 
 ```
 {
-  "name": "Jane Doe"
+  "name": "John Doe"
 }
 
 ```
@@ -107,7 +115,7 @@ Add the following payload:
 Click Send. You should receive a confirmation message.
 ```
 {
-    "message": "person added!"
+    "message": "Person updated!"
 }
 ```
 
@@ -120,6 +128,25 @@ Click Send. You should receive a confirmation message.
 
 ```
 {
-    "message": "New person added!"
+    "message": "person deleted!"
 }
 ```
+
+## Error Responses
+In case of errors, the API will return appropriate status codes and messages. For instance:
+
+  400 Bad Request: Sent if the data format is incorrect or validation fails.
+  404 Not Found: If the resource (person) is not found.
+  405 Method Not Allowed: If the wrong HTTP method is used.
+  
+## Assumptions and Limitations
+Database: This model uses SQLite, a lightweight database suitable for development and testing. For production scenarios, consider using a more scalable database.
+
+Validation: The current implementation primarily validates the name for uniqueness. More comprehensive validation can be added based on requirements.
+
+Security: This is a basic model without authentication or authorization layers. Before moving to a production environment, consider adding security mechanisms.
+
+Conclusion
+This documentation provides a basic overview and usage instructions for the Persons API. Always ensure that you're using the correct HTTP methods and providing data in the required format to ensure smooth operations.
+
+[live link](https://personapi-qey7.onrender.com/)
