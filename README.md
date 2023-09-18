@@ -15,7 +15,8 @@ Environment Setup:
 
 It's recommended to use a virtual environment to keep the project dependencies isolated.
 ```
-python -m venv venv
+virtualenv venv
+
 source venv/bin/activate  # On Windows, use: venv\Scripts\activate
 ```
 
